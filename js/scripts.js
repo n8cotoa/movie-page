@@ -24,6 +24,16 @@ function ticketPrice (input) {
   }
   return price
 }
+
+function ageValidation(input) {
+  if (input < 0) {
+    return false
+  } else if (isNaN(input)) {
+    return false
+  } else {
+    return true
+  }
+}
 // User Interface Logic
 
 $(document).ready(function() {
@@ -32,18 +42,24 @@ $(document).ready(function() {
     var movie = $(this).text();
     $("#movies span").not(this).slideToggle();
     $("#showtime").slideToggle("slow");
+    $(this).slideDown();
 
     $("#showtime span").click(function() {
       var showtime = $(this).text();
-
-      $("#ageInput").slideToggle("slow");
+      $("#showtime span").removeClass("selected");
+      $(this).addClass("selected");
+      $("#ageInput").fadeIn("slow");
 
 
     $("#ageInput button").click(function(event) {
       event.preventDefault();
       var age = parseInt($("input#age").val());
       var ticket = new Ticket (movie, showtime, age)
-      $(".ticket-price h1").text(ticketPrice(ticket))
+      if (ageValidation(age)) {
+        $(".ticket-price h1").text(ticketPrice(ticket))
+      } else {
+        alert("Please input a number higher than 0")
+      }
       });
     });
   });

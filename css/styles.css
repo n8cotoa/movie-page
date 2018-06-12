@@ -4,5 +4,34 @@
 }
 
 #showtime span {
-  margin: 10px;
+  margin: 20px 20px 0 0;
+}
+.btn-info {
+  background-color: #EF5D60;
+}
+.btn-info:hover {
+  background-color: #EC4067;
+}
+
+.btn-danger {
+  background-color: #A01A7D;
+}
+
+.selected {
+  background-color: #311847;
+}
+
+body {
+  background-image: url('../img/pink-dust.png');
+}
+
+.container {
+  background: white;
+  padding: 20px;
+}
+
+.jumbotron {
+  background-image: url('../img/zig-zag-wool.png');
+  text-align: center;
+  color:white;
 }
