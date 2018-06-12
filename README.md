@@ -15,6 +15,20 @@
 1. Commit and push your changes
 1. Create a PR
 
+## Specifications
+
+* Users can select the name of the movie, the time of day they want to see it, and their age:
+  * Example Input: "Movie", "Showtime", "Age"
+  * Example Output: Avengers, 7:00pm, 18
+
+* Depending on what the user selects their ticket price is calculated
+  * Example Input: Avengers, 7:00pm, 18
+  * Example Output: $11
+
+* Ticket price will be adjusted based on movie release date and other discounts
+  * Example Input: $11
+  * Example Output: Senior Discount - $9
+
 ## Technologies Used
 
 * Bootstrap x.x.x
@@ -22,7 +36,7 @@
 
 ## Links
 
-* 
+*
 
 ## License
 

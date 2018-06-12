@@ -1,0 +1,8 @@
+#showtime, #ageInput {
+  display: none;
+  margin: 15px 0;
+}
+
+#showtime span {
+  margin: 10px;
+}
