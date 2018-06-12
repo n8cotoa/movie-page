@@ -7,15 +7,15 @@ function Ticket(movie, showtime, age) {
 
 function ticketPrice (input) {
   var price = 5
-  if (input.movie === "Movie 1" || input.movie === "Movie 3") {
+  if (input.movie === "new" ) {
     price += 3
   } else {
-    price += 2
+    price += 1
   }
-  if (input.showtime === "Showtime 4" || input.showtime === "Showtime 5" || input.showtime === "Showtime 6" ) {
-    price += 3
-  } else {
+  if (input.showtime === "matinee") {
     price += 2
+  } else {
+    price += 4
   }
   if (input.age >= 65 ) {
     price += 1
@@ -38,15 +38,15 @@ function ageValidation(input) {
 
 $(document).ready(function() {
 
-  $("#movies span").click(function() {
-    var movie = $(this).text();
-    $("#movies span").not(this).slideToggle();
+  $("#movies button").click(function() {
+    var movie = $(this).val();
+    $("#movies button").not(this).slideToggle();
     $("#showtime").slideToggle("slow");
     $(this).slideDown();
 
-    $("#showtime span").click(function() {
-      var showtime = $(this).text();
-      $("#showtime span").removeClass("selected");
+    $("#showtime button").click(function() {
+      var showtime = $(this).val();
+      $("#showtime button").removeClass("selected");
       $(this).addClass("selected");
       $("#ageInput").fadeIn("slow");
 
@@ -64,6 +64,24 @@ $(document).ready(function() {
     });
   });
 
+    $(".incr-btn").on("click", function (e) {
+        var $button = $(this);
+        var oldValue = $button.parent().find('.quantity').val();
+        $button.parent().find('.incr-btn[data-action="decrease"]').removeClass('inactive');
+        if ($button.data('action') == "increase") {
+            var newVal = parseFloat(oldValue) + 1;
+        } else {
+            // Don't allow decrementing below 1
+            if (oldValue > 1) {
+                var newVal = parseFloat(oldValue) - 1;
+            } else {
+                newVal = 1;
+                $button.addClass('inactive');
+            }
+        }
+        $button.parent().find('.quantity').val(newVal);
+        e.preventDefault();
+    });
 
 
 

@@ -13,25 +13,54 @@
     <h1>Epicodus Theater</h1>
   </div>
   <div class="container">
+    <div class="banner">
+    <img src="img/banner.jpg" alt="Jurassic World 2">
+    </div>
     <div id="movies" class="">
-      <span class="btn btn-info">Movie 1</span>
-      <span class="btn btn-info">Movie 2</span>
-      <span class="btn btn-info">Movie 3</span>
-      <span class="btn btn-info">Movie 4</span>
+      <button class="btn btn-info" value="new">Movie 1</button>
+      <button class="btn btn-info">Movie 2</button>
+      <button class="btn btn-info" value="new">Movie 3</button>
+      <button class="btn btn-info">Movie 4</button>
     </div>
     <div id="showtime" class="">
-      <span class="btn btn-danger">Showtime 1</span>
-      <span class="btn btn-danger">Showtime 2</span>
-      <span class="btn btn-danger">Showtime 3</span>
-      <span class="btn btn-danger">Showtime 4</span>
-      <span class="btn btn-danger">Showtime 5</span>
-      <span class="btn btn-danger">Showtime 6</span>
+      <button class="btn btn-danger" value="matinee">Showtime 1</button>
+      <button class="btn btn-danger" value="matinee">Showtime 2</button>
+      <button class="btn btn-danger" value="matinee">Showtime 3</button>
+      <button class="btn btn-danger">Showtime 4</button>
+      <button class="btn btn-danger">Showtime 5</button>
+      <button class="btn btn-danger">Showtime 6</button>
     </div>
     <div id="ageInput">
-      <div class="form-group">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="count-input space-bottom">
+            <a class="incr-btn" data-action="decrease" href="#">–</a>
+            <input class="quantity" type="text" name="quantity" value="0"/>
+            <a class="incr-btn" data-action="increase" href="#">&plus;</a>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="count-input space-bottom">
+            <a class="incr-btn" data-action="decrease" href="#">–</a>
+            <input class="quantity" type="text" name="quantity" value="0"/>
+            <a class="incr-btn" data-action="increase" href="#">&plus;</a>
+          </div>
+        </div>
+          <div class="col-md-6">
+            <div class="count-input space-bottom">
+              <a class="incr-btn" data-action="decrease" href="#">–</a>
+              <input class="quantity" type="text" name="quantity" value="0"/>
+              <a class="incr-btn" data-action="increase" href="#">&plus;</a>
+            </div>
+          </div>  
+        </div>
+      </div>
+
+
+      <!-- <div class="form-group">
         <label for="age">Age:</label>
         <input for="age" id="age" class="form-control">
-      </div>
+      </div> -->
       <button type="submit" name="button" id="ticket-button">Purchase Tickets</button>
     </div>
     <div class="ticket-price">
