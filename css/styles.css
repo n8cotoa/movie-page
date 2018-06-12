@@ -63,7 +63,7 @@ img {
 .count-input input:focus {
   outline: none;
 }
-.count-input .incr-btn {
+.regular-btn, .student-btn, .senior-btn {
   display: block;
   position: absolute;
   width: 30px;
@@ -77,7 +77,7 @@ img {
   margin-top: -15px;
   text-decoration:none;
 }
-.count-input .incr-btn:first-child {
+.regular-btn:first-child, .student-btn:first-child, .senior-btn:first-child {
   right: auto;
   left: 0;
   top: 46%;

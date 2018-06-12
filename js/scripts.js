@@ -1,11 +1,27 @@
 // Business Logic
-function Ticket(movie, showtime, age) {
+var data = new Data();
+
+function Data() {
+  this.receipts = []
+}
+
+function Receipt(name) {
+  this.name = name;
+  this.tickets = [];
+}
+
+function Ticket(movie, showtime, ticketArray) {
   this.movie = movie;
   this.showtime = showtime;
-  this.age = age;
+  this.tickets = ticketArray;
+}
+
+function getSum(total, num) {
+    return total + num;
 }
 
 function ticketPrice (input) {
+  var quantity = input.tickets.reduce(getSum);
   var price = 5
   if (input.movie === "new" ) {
     price += 3
@@ -17,24 +33,21 @@ function ticketPrice (input) {
   } else {
     price += 4
   }
-  if (input.age >= 65 ) {
-    price += 1
-  } else {
-    price += 3
+  if (input.tickets[0] >= 1) {
+    var regular = (price + 3) * input.tickets[0];
   }
-  return price
+  if (input.tickets[1] >= 1) {
+    var student = (price + 2) * input.tickets[1];
+  }
+  if (input.tickets[2] >= 1){
+    var senior = (price + 1) * input.tickets[2];
+  }
+  return regular + student + senior;
 }
 
-function ageValidation(input) {
-  if (input < 0) {
-    return false
-  } else if (isNaN(input)) {
-    return false
-  } else {
-    return true
-  }
+function makeTickets(movie, showtime, inputArray) {
+  new Ticket()
 }
-// User Interface Logic
 
 $(document).ready(function() {
 
@@ -50,39 +63,21 @@ $(document).ready(function() {
       $(this).addClass("selected");
       $("#ageInput").fadeIn("slow");
 
+      $("#ticket-button").click(function() {
+        console.log(movie);
 
-    $("#ageInput button").click(function(event) {
-      event.preventDefault();
-      var age = parseInt($("input#age").val());
-      var ticket = new Ticket (movie, showtime, age)
-      if (ageValidation(age)) {
-        $(".ticket-price h1").text(ticketPrice(ticket))
-      } else {
-        alert("Please input a number higher than 0")
-      }
+        var regular = parseInt($("#regular").val());
+        var student = parseInt($("#student").val());
+        var senior = parseInt($("#senior").val());
+        var ticketArray = [regular, student, senior]
+        var ticket = new Ticket (movie, showtime, ticketArray)
+        ticketPrice(ticket);
+        console.log(ticketPrice(ticket));
+
       });
     });
   });
 
-    $(".incr-btn").on("click", function (e) {
-        var $button = $(this);
-        var oldValue = $button.parent().find('.quantity').val();
-        $button.parent().find('.incr-btn[data-action="decrease"]').removeClass('inactive');
-        if ($button.data('action') == "increase") {
-            var newVal = parseFloat(oldValue) + 1;
-        } else {
-            // Don't allow decrementing below 1
-            if (oldValue > 1) {
-                var newVal = parseFloat(oldValue) - 1;
-            } else {
-                newVal = 1;
-                $button.addClass('inactive');
-            }
-        }
-        $button.parent().find('.quantity').val(newVal);
-        e.preventDefault();
-    });
 
 
-
-});
+  });

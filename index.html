@@ -32,27 +32,36 @@
     </div>
     <div id="ageInput">
       <div class="row">
-        <div class="col-md-6">
-          <div class="count-input space-bottom">
-            <a class="incr-btn" data-action="decrease" href="#">–</a>
-            <input class="quantity" type="text" name="quantity" value="0"/>
-            <a class="incr-btn" data-action="increase" href="#">&plus;</a>
-          </div>
+        <div class="col-md-4">
+          <h4>Regular Tickets</h4>
+          <select id="regular">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
         </div>
-        <div class="col-md-6">
-          <div class="count-input space-bottom">
-            <a class="incr-btn" data-action="decrease" href="#">–</a>
-            <input class="quantity" type="text" name="quantity" value="0"/>
-            <a class="incr-btn" data-action="increase" href="#">&plus;</a>
-          </div>
+        <div class="col-md-4">
+          <h4>Student Tickets</h4>
+          <select id="student">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
         </div>
-          <div class="col-md-6">
-            <div class="count-input space-bottom">
-              <a class="incr-btn" data-action="decrease" href="#">–</a>
-              <input class="quantity" type="text" name="quantity" value="0"/>
-              <a class="incr-btn" data-action="increase" href="#">&plus;</a>
-            </div>
-          </div>  
+          <div class="col-md-4">
+            <h4>Senior Tickets</h4>
+            <select id="senior">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+          </div>
         </div>
       </div>
 
@@ -61,7 +70,7 @@
         <label for="age">Age:</label>
         <input for="age" id="age" class="form-control">
       </div> -->
-      <button type="submit" name="button" id="ticket-button">Purchase Tickets</button>
+      <button name="button" id="ticket-button">Purchase Tickets</button>
     </div>
     <div class="ticket-price">
       <h1></h1>
